@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import CarouselMovie from './component/CarouselMovie';
+import { Row, Container } from 'react-bootstrap';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Container fluid>
+        <Row className="text-white mt-4 mb-3 categories">Horror</Row>
+       <CarouselMovie category="horror"/>
+       <Row className="text-white mt-4 mb-3 categories">Drama</Row>
+       <CarouselMovie category="drama"/>
+       <Row className="text-white mt-4 mb-3 categories">Romance</Row>
+       <CarouselMovie category="romance"/>
+       <Row className="text-white mt-4 mb-3 categories">Comedy</Row>
+       <CarouselMovie category="comedy"/>
+       <Row className="text-white mt-4 mb-3 categories">Action</Row>
+       <CarouselMovie category="action"/>
+      </Container>
     </div>
   );
 }
