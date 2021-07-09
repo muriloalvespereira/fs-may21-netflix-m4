@@ -1,12 +1,29 @@
 import { Component } from "react";
 import { Navbar, Nav, Form } from "react-bootstrap";
-import { FaSearch, FaBell, FaSortDown } from 'react-icons/fa'
+import { FaSearch, FaBell, FaSortDown } from "react-icons/fa";
+import SearchBar from "./SearchBar";
 class CustomNavbar extends Component {
+  state = {
+    isSearch: false,
+    hideSearch: true,
+  };
+
+  displaySearch = () => {
+    this.setState({
+      isSearch: true,
+      hideSearch: false,
+    });
+  };
+
   render() {
     return (
       <Navbar variant="dark" className="sticky-top bg-color">
         <Navbar.Brand href="#home">
-          <img src="./assets/netflix_logo.png" className="img-logo" alt=""></img>
+          <img
+            src="./assets/netflix_logo.png"
+            className="img-logo"
+            alt=""
+          ></img>
         </Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="#home">Home</Nav.Link>
@@ -16,11 +33,17 @@ class CustomNavbar extends Component {
           <Nav.Link href="#list">My List</Nav.Link>
         </Nav>
         <Form inline>
-        <FaSearch className="mr-3 nav-icons" />
+          {this.state.isSearch && <SearchBar />}
+          {this.state.hideSearch && (
+            <FaSearch
+              className="mr-3 nav-icons search-nav"
+              onClick={this.displaySearch}
+            />
+          )}
           <p className="pt-3 mr-3 text-white">KIDS</p>
-          <FaBell className="mr-3 nav-icons"/>
+          <FaBell className="mr-3 nav-icons" />
           <img src="./assets/kidssecond.png" className="mr-1" alt=""></img>
-          <FaSortDown className="nav-icons"/>
+          <FaSortDown className="nav-icons" />
         </Form>
       </Navbar>
     );

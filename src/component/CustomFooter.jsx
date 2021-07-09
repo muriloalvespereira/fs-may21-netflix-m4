@@ -15,31 +15,31 @@ const CustomFooter = () => {
             <FaYoutube className="m-2"/>
             </Row>
             <Row >
-                <div class="col-12 col-sm-6 col-lg-3 ">
+                <div className="col-12 col-sm-6 col-lg-3 ">
                   <div>Audio and Subtitles </div>  
                    <div>Media Center </div> 
                    <div>Privacy</div>  
-                   <div>footerButton</div> 
+                   <div>Contact Us</div> 
                     
                     
                     </div>
 
-                    <div class="col-12 col-sm-6 col-lg-3 ">
+                    <div className="col-12 col-sm-6 col-lg-3 ">
                     Audio Description<br/>
                     Invertor Relations <br/>
                     Legal Notices <br/>
 
                 </div>
-                <div class="col-12 col-sm-6 col-lg-3 ">
+                <div className="col-12 col-sm-6 col-lg-3 ">
                     Help Center <br/>
                     Jobs <br/>
                     Cookie Preferences <br/>
 
                 </div>
 
-                <div class="col-12 col-sm-6 col-lg-3 ">
+                <div className="col-12 col-sm-6 col-lg-3 ">
                     Gift Cards <br/>
-                    Terms of use <br/>
+                    Terms of Use <br/>
                     Corporate Information <br/>
 
                 </div>

@@ -12,8 +12,6 @@ class Section extends Component {
       "http://www.omdbapi.com/?apikey=a6236011&s=" + this.props.category
     );
     let data = await response.json();
-    //    console.log(data.Search.map(movie =>  movie ).slice(0,1))
-    console.log(data.Search)
     this.setState({
       movies: data.Search,
     });
@@ -26,7 +24,7 @@ class Section extends Component {
           {this.state.movies
             .map((movie) => (
               <Col key={movie.imdbID} className="pr-0">
-                <SingleCard key={movie.imdbID} imgPoster={movie.Poster} />
+                <SingleCard imgPoster={movie.Poster} />
               </Col>
             ))
             .slice(0, 6)}
