@@ -13,6 +13,7 @@ class Section extends Component {
     );
     let data = await response.json();
     //    console.log(data.Search.map(movie =>  movie ).slice(0,1))
+    console.log(data.Search)
     this.setState({
       movies: data.Search,
     });
