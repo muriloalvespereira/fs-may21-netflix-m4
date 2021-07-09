@@ -1,8 +1,10 @@
 import './App.css';
 import CarouselMovie from './component/CarouselMovie';
 import { Row, Container } from 'react-bootstrap';
+import CustomFooter from './component/CustomFooter'
 import CustomNavbar from './component/CustomNavbar';
 import SectionTitle from './component/SectionTitle';
+
 
 function App() {
   return (
@@ -10,7 +12,7 @@ function App() {
       <CustomNavbar />
       <SectionTitle />
       <Container fluid>
-        <Row className="text-white mt-4 mb-2 categories"><h5>Horror</h5></Row>
+       <Row className="text-white mt-4 mb-2 categories"><h5>Horror</h5></Row>
        <CarouselMovie category="horror"/>
        <Row className="text-white mt-4 mb-2 categories"><h5>Drama</h5></Row>
        <CarouselMovie category="drama"/>
@@ -21,7 +23,9 @@ function App() {
        <Row className="text-white mt-4 mb-2 categories"><h5>Action</h5></Row>
        <CarouselMovie category="action"/>
       </Container>
+      <CustomFooter />
     </div>
+
   );
 }
 
