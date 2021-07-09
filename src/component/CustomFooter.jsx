@@ -44,7 +44,7 @@ const CustomFooter = () => {
 
                 </div>
             </Row>
-            <Row><div className="footerButton mt-4 ml-3">
+            <Row><div className="footerButton mt-4 ml-3 py-1 px-2">
                         Service Code
                     </div></Row>
                     <Row>
