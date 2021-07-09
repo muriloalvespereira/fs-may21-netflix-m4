@@ -20,5 +20,47 @@ code {
 	border-radius: none;
 }
 .categories {
-	padding-left: 30px;
+  padding-left: 30px;
+  /* font-size: 20px;
+  font-weight: 500;*/
+}
+
+.img-logo {
+  height: 20px;
+  width: 75px;
+  margin-left: 15px;
+}
+.nav-icons {
+  color: white;
+}
+.bg-color {
+  background-color: rgba(0, 0, 0, 0.92) !important;
+}
+
+.section-title {
+  margin-left: 30px;
+}
+
+.btn {
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  border-radius: 0px !important;
+}
+
+.dropdown-toggle::after {
+  margin-left: 20px !important;
+}
+
+.border-icons {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  height: 30px;
+  width: 45px;
+}
+
+.div-icons {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.5) !important;
 }
