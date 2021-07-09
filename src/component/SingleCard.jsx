@@ -4,9 +4,10 @@ import { Card } from "react-bootstrap";
 class SingleCard extends Component {
   render() {
     return (
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-      </Card>
+
+          <Card style={{border: "none"}}>
+            <Card.Img variant="top" src={this.props.imgPoster} style={{height: "102px"}} className="img-fluid cover-img"/>
+          </Card>
     );
   }
 }
