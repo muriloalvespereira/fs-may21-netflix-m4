@@ -15,6 +15,10 @@ class CustomNavbar extends Component {
     });
   };
 
+  searchMovies = (message) => {
+    this.props.searchMovies(message)
+   }
+
   render() {
     return (
       <Navbar variant="dark" className="sticky-top bg-color">
@@ -33,7 +37,7 @@ class CustomNavbar extends Component {
           <Nav.Link href="#list">My List</Nav.Link>
         </Nav>
         <Form inline>
-          {this.state.isSearch && <SearchBar />}
+          {this.state.isSearch && <SearchBar searchMovies={this.searchMovies}/>}
           {this.state.hideSearch && (
             <FaSearch
               className="mr-3 nav-icons search-nav"
