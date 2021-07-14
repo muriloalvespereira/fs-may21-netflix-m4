@@ -1,12 +1,10 @@
 import "./App.css";
-import CarouselMovie from "./component/CarouselMovie";
-import { Row, Container } from "react-bootstrap";
 import CustomFooter from "./component/CustomFooter";
 import CustomNavbar from "./component/CustomNavbar";
-import SectionTitle from "./component/SectionTitle";
 import { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./component/Home";
+import ShowDetail from "./component/ShowDetail";
 
 class App extends Component {
   state = {
@@ -23,13 +21,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <CustomNavbar searchMovies={this.searchMovies} />
         <Router>
-          <Route path="/" exact render={(routerProps) => {
-          <Home />
-          }} />
-        </Router>
+          <CustomNavbar searchMovies={this.searchMovies} />
+          <Route
+            path="/"
+            exact
+            render={(routerProps) => (
+              <Home category={this.state.search} {...routerProps} />
+            )}
+          />
+          <Route path="/details/:id" exact component={ShowDetail} />
           <CustomFooter />
+        </Router>
       </div>
     );
   }

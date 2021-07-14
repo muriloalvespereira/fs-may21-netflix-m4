@@ -51,7 +51,7 @@ class Section extends Component {
             .map((movie) => (
               <Col key={movie.imdbID} className="pr-0">
                 {/* {this.state.searchedMovies && <SingleCard imgPoster={movie.album.cover_medium} />} */}
-                <SingleCard imgPoster={movie.Poster} /> 
+                <SingleCard imgPoster={movie.Poster} cardId={movie.imdbID} history={this.props.history} location={this.props.location} math={this.props.math}/> 
               </Col>
             ))
             .slice(0, 6)}
