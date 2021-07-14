@@ -6,7 +6,7 @@ class SingleCard extends Component {
     return (
 
           <Card style={{border: "none"}} className="cardEffect">
-            <Card.Img variant="top" src={this.props.imgPoster} style={{height: "142px", width: "270px"}} className="img-fluid cover-img"/>
+            <Card.Img variant="top" src={this.props.imgPoster} style={{height: "132px", width: "330px"}} className="img-fluid cover-img"/>
           </Card>
     );
   }
