@@ -1,28 +1,43 @@
-import './App.css';
-import CarouselMovie from './component/CarouselMovie';
-import { Row, Container } from 'react-bootstrap';
-import CustomNavbar from './component/CustomNavbar';
-import SectionTitle from './component/SectionTitle';
+import "./App.css";
+import CustomFooter from "./component/CustomFooter";
+import CustomNavbar from "./component/CustomNavbar";
+import { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./component/Home";
+import ShowDetail from "./component/ShowDetail";
+import Register from "./component/Register";
 
-function App() {
-  return (
-    <div className="App">
-      <CustomNavbar />
-      <SectionTitle />
-      <Container fluid>
-        <Row className="text-white mt-4 mb-2 categories"><h5>Horror</h5></Row>
-       <CarouselMovie category="horror"/>
-       <Row className="text-white mt-4 mb-2 categories"><h5>Drama</h5></Row>
-       <CarouselMovie category="drama"/>
-       <Row className="text-white mt-4 mb-2 categories"><h5>Romance</h5></Row>
-       <CarouselMovie category="romance"/>
-       <Row className="text-white mt-4 mb-2 categories"><h5>Comedy</h5></Row>
-       <CarouselMovie category="comedy"/>
-       <Row className="text-white mt-4 mb-2 categories"><h5>Action</h5></Row>
-       <CarouselMovie category="action"/>
-      </Container>
-    </div>
-  );
+class App extends Component {
+  state = {
+    search: "spider",
+  };
+
+  searchMovies = (message) => {
+    console.log(message);
+    this.setState({
+      search: message,
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Router>
+          <CustomNavbar searchMovies={this.searchMovies} />
+          <Route
+            path="/"
+            exact
+            render={(routerProps) => (
+              <Home category={this.state.search} {...routerProps} />
+            )}
+          />
+          <Route path="/details/:id" exact component={ShowDetail} />
+          <Route path="/register" exact component={Register} />
+          <CustomFooter />
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;

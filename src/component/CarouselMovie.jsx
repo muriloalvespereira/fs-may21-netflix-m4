@@ -7,13 +7,13 @@ class CarouselMovie extends Component {
     return (
       <Carousel interval={null} indicators={false}>
         <Carousel.Item>
-          <Section category={this.props.category} />
+          <Section category={this.props.category} history={this.props.history} location={this.props.location} math={this.props.math} />
         </Carousel.Item>
         <Carousel.Item>
-          <Section category={this.props.category} />
+          <Section category={this.props.category} history={this.props.history} location={this.props.location} math={this.props.math}/>
         </Carousel.Item>
         <Carousel.Item>
-          <Section category={this.props.category} />
+          <Section category={this.props.category} history={this.props.history} location={this.props.location} math={this.props.math}/>
         </Carousel.Item>
       </Carousel>
     );
