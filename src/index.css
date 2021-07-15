@@ -104,9 +104,8 @@ code {
   color: white;
 }
 
-.form-border {
+.div-form {
   border: 1px solid white;
-  width: 50%;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -114,4 +113,16 @@ code {
 .validation {
   color: green;
   font-weight: bold;
+}
+label,
+p {
+  color: white;
+}
+.errors {
+  color: red;
+  font-size: 12px;
+}
+
+.span-results {
+  color: green;
 }
