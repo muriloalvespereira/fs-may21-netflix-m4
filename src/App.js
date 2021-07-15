@@ -5,6 +5,7 @@ import { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./component/Home";
 import ShowDetail from "./component/ShowDetail";
+import Register from "./component/Register";
 
 class App extends Component {
   state = {
@@ -31,6 +32,7 @@ class App extends Component {
             )}
           />
           <Route path="/details/:id" exact component={ShowDetail} />
+          <Route path="/register" exact component={Register} />
           <CustomFooter />
         </Router>
       </div>

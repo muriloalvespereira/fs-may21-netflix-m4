@@ -37,6 +37,7 @@ class CustomNavbar extends Component {
             <Nav.Link href="#pricing">Movies</Nav.Link>
             <Nav.Link href="#added">Recently Added</Nav.Link>
             <Nav.Link href="#list">My List</Nav.Link>
+            <Link to="/register" className="nav-link">Register</Link>
           </Nav>
           <Form inline>
             {this.state.isSearch && <SearchBar searchMovies={this.searchMovies}/>}
