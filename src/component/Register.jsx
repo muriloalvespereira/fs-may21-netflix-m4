@@ -3,9 +3,26 @@ import Schema from "./Schema";
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
 import Result from "./Result";
+import { BsEyeSlashFill } from "react-icons/bs";
 
 const Register = () => {
   const [data, setData] = useState(false);
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setConfirmShowPassword] = useState(false)
+  const [checkMarkName, setCheckMarkName] = useState(false)
+  const [checkMarkSurname, setCheckMarkSurname] = useState(false)
+  const [checkMarkEmail, setCheckMarkEmail] = useState(false)
+  const [checkMarkPass, setCheckMarkPass] = useState(false)
+  const [checkMarkConfirmPass, setCheckMarkConfirmPass] = useState(false)
+
+
+  const hidePassword = () => {
+      setShowPassword(!showPassword)
+  }
+
+  const hideConfirmPassword = () => {
+    setConfirmShowPassword(!showConfirmPassword)
+}
 
   function onSubmit(values, actions) {
     setData(values)
@@ -32,36 +49,58 @@ const Register = () => {
                 {console.log(props)}
                 <div className="errors mt-3">
                   <label>Nome</label>
-                  <Field name="name" className="form-control" type="text" />
-                  <ErrorMessage name="name" />
+                  <Field onBlur={() => {
+                      if(!props.errors.name)(
+                          setCheckMarkName(true)
+                      )
+                      }} name="name" className={checkMarkName ? "form-control form-control-green" : "form-control"} type="text" />
+                  <div><ErrorMessage name="name" /></div>
                 </div>
                 <div className="errors mt-3">
                   <label>Surname</label>
-                  <Field name="surname" className="form-control" type="text" />
-                  <ErrorMessage name="surname" />
+                  <Field onBlur={() => {
+                      if(!props.errors.surname)(
+                          setCheckMarkSurname(true)
+                      )
+                      }} name="surname" className={checkMarkSurname ? "form-control form-control-green" : "form-control"} type="text" />
+                  <div><ErrorMessage name="surname" /></div>
                 </div>
                 <div className="errors mt-3">
                   <label>Email</label>
-                  <Field name="email" className="form-control" type="email" />
-                  <ErrorMessage name="email" />
+                  <Field onBlur={() => {
+                      if(!props.errors.email)(
+                          setCheckMarkEmail(true)
+                      )
+                      }} name="email" className={checkMarkEmail ? "form-control form-control-green" : "form-control"} type="email" />
+                  <div><ErrorMessage name="email" /></div>
                 </div>
-                <div className="errors mt-3">
+                <div className="errors mt-3 position-relative">
                   <label>Password</label>
-                  <Field
+                  <Field onBlur={() => {
+                      if(!props.errors.password)(
+                          setCheckMarkPass(true)
+                      )
+                      }}
                     name="password"
-                    className="form-control"
-                    type="password"
-                  />
-                  <ErrorMessage name="password" />
+                    className={checkMarkPass ? "form-control form-control-green" : "form-control"}
+                    type={showPassword ? 'text' : 'password'}
+                  ></Field>
+                  <span className="position-relative eyes text-white"><BsEyeSlashFill onClick={() => hidePassword()} /></span>
+                  <div className="position-relative error-msg"><ErrorMessage name="password" /></div>
                 </div>
-                <div className="errors mb-4 mt-3">
+                <div className="errors mb-4 position-relative">
                   <label>Confirm Password</label>
-                  <Field
+                  <Field onBlur={() => {
+                      if(!props.errors.confirmPassword)(
+                          setCheckMarkConfirmPass(true)
+                      )
+                      }}
                     name="confirmPassword"
-                    className="form-control"
-                    type="password"
+                    className={checkMarkConfirmPass ? "form-control form-control-green" : "form-control"}
+                    type={showConfirmPassword ? 'text' : 'password'}
                   />
-                  <ErrorMessage name="confirmPassword" />
+                  <span className="position-relative eyesConfirm text-white"><BsEyeSlashFill onClick={() => hideConfirmPassword()} /></span>
+                  <div className="position-relative error-msg"><ErrorMessage name="confirmPassword" /></div>
                 </div>
                 <button
                   className="btn btn-primary mb-3"

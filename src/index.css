@@ -77,6 +77,16 @@ code {
   justify-content: center;
   margin: auto;
 }
+.form-control-green {
+  background-color: transparent !important;
+  border-radius: 0px !important;
+  border: 2px solid green !important;
+  color: white !important;
+  width: 300px !important;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
 
 .search-bar {
   left: 5px;
@@ -125,4 +135,18 @@ p {
 
 .span-results {
   color: green;
+}
+
+.eyes {
+  right: -135px;
+  top: -30px;
+}
+
+.eyesConfirm {
+  right: -135px;
+  top: -30px;
+}
+
+.error-msg {
+  top: -17px;
 }
