@@ -1,4 +1,4 @@
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, Field, Form } from "formik";
 import Schema from "./Schema";
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
@@ -9,11 +9,11 @@ const Register = () => {
   const [data, setData] = useState(false);
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setConfirmShowPassword] = useState(false)
-  const [checkMarkName, setCheckMarkName] = useState(false)
-  const [checkMarkSurname, setCheckMarkSurname] = useState(false)
-  const [checkMarkEmail, setCheckMarkEmail] = useState(false)
-  const [checkMarkPass, setCheckMarkPass] = useState(false)
-  const [checkMarkConfirmPass, setCheckMarkConfirmPass] = useState(false)
+  const [checkMarkName, setCheckMarkName] = useState(null)
+  const [checkMarkSurname, setCheckMarkSurname] = useState(null)
+  const [checkMarkEmail, setCheckMarkEmail] = useState(null)
+  const [checkMarkPass, setCheckMarkPass] = useState(null)
+  const [checkMarkConfirmPass, setCheckMarkConfirmPass] = useState(null)
 
 
   const hidePassword = () => {
@@ -53,17 +53,23 @@ const Register = () => {
                       if(!props.errors.name)(
                           setCheckMarkName(true)
                       )
+                      else(
+                        setCheckMarkName(false)
+                      )
                       }} name="name" className={checkMarkName ? "form-control form-control-green" : "form-control"} type="text" />
-                  <div><ErrorMessage name="name" /></div>
+                  { checkMarkName === false && <div>{props.errors.name}</div>}
                 </div>
                 <div className="errors mt-3">
                   <label>Surname</label>
                   <Field onBlur={() => {
                       if(!props.errors.surname)(
                           setCheckMarkSurname(true)
+                      ) 
+                      else(
+                        setCheckMarkSurname(false)
                       )
                       }} name="surname" className={checkMarkSurname ? "form-control form-control-green" : "form-control"} type="text" />
-                  <div><ErrorMessage name="surname" /></div>
+                  { checkMarkSurname === false && <div>{props.errors.surname}</div>}
                 </div>
                 <div className="errors mt-3">
                   <label>Email</label>
@@ -71,8 +77,11 @@ const Register = () => {
                       if(!props.errors.email)(
                           setCheckMarkEmail(true)
                       )
+                      else(
+                        setCheckMarkEmail(false)
+                      )
                       }} name="email" className={checkMarkEmail ? "form-control form-control-green" : "form-control"} type="email" />
-                  <div><ErrorMessage name="email" /></div>
+                  { checkMarkEmail === false && <div>{props.errors.email}</div>}
                 </div>
                 <div className="errors mt-3 position-relative">
                   <label>Password</label>
@@ -80,13 +89,16 @@ const Register = () => {
                       if(!props.errors.password)(
                           setCheckMarkPass(true)
                       )
+                      else(
+                        setCheckMarkPass(false)
+                      )
                       }}
                     name="password"
                     className={checkMarkPass ? "form-control form-control-green" : "form-control"}
                     type={showPassword ? 'text' : 'password'}
                   ></Field>
                   <span className="position-relative eyes text-white"><BsEyeSlashFill onClick={() => hidePassword()} /></span>
-                  <div className="position-relative error-msg"><ErrorMessage name="password" /></div>
+                  { checkMarkPass === false && <div className="position-relative error-msg">{props.errors.password}</div>}
                 </div>
                 <div className="errors mb-4 position-relative">
                   <label>Confirm Password</label>
@@ -94,13 +106,16 @@ const Register = () => {
                       if(!props.errors.confirmPassword)(
                           setCheckMarkConfirmPass(true)
                       )
+                      else(
+                        setCheckMarkConfirmPass(false)
+                      )
                       }}
                     name="confirmPassword"
                     className={checkMarkConfirmPass ? "form-control form-control-green" : "form-control"}
                     type={showConfirmPassword ? 'text' : 'password'}
                   />
                   <span className="position-relative eyesConfirm text-white"><BsEyeSlashFill onClick={() => hideConfirmPassword()} /></span>
-                  <div className="position-relative error-msg"><ErrorMessage name="confirmPassword" /></div>
+                  { checkMarkConfirmPass === false && <div className="position-relative error-msg">{props.errors.confirmPassword}</div>}
                 </div>
                 <button
                   className="btn btn-primary mb-3"
