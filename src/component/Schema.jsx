@@ -19,7 +19,6 @@ export default Yup.object().shape({
     .matches(lowercaseRegex, "Must be at least 1 lowercase")
     .matches(uppercaseRegex, "Must be at least 1 uppercase")
     .matches(numericRegex, "Must be at least 1 number")
-    .matches(numericRegex, "Must be at least 1 number")
     .matches(specialRegex, "Must be at least 1 special character")
     .min(8)
     .required("Password is required"),
