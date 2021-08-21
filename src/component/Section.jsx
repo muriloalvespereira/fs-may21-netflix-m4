@@ -19,7 +19,7 @@ class Section extends Component {
           category: this.props.category,
         });
         let response = await fetch(
-          "http://www.omdbapi.com/?apikey=a6236011&s=" + this.state.category
+          '${process.env.REACT_APP_BE_PROD_URL}media?s=' + this.state.category
         );
         let data = await response.json();
         let films = data.Search.filter((film) => film.Poster.length > 5);
@@ -27,7 +27,7 @@ class Section extends Component {
           movies: films,
           //   searchedMovies: true
         });
-      } 
+      }
     } catch (err) {
       console.log("cai no catch", err);
     }
@@ -35,7 +35,7 @@ class Section extends Component {
 
   componentDidMount = async () => {
     let response = await fetch(
-      "http://www.omdbapi.com/?apikey=a6236011&s=" + this.props.category
+      `${process.env.REACT_APP_BE_PROD_URL}media?s=` + this.props.category
     );
     let data = await response.json();
     this.setState({
@@ -51,7 +51,7 @@ class Section extends Component {
             .map((movie) => (
               <Col key={movie.imdbID} className="pr-0">
                 {/* {this.state.searchedMovies && <SingleCard imgPoster={movie.album.cover_medium} />} */}
-                <SingleCard imgPoster={movie.Poster} cardId={movie.imdbID} history={this.props.history} location={this.props.location} math={this.props.math}/> 
+                <SingleCard imgPoster={movie.Poster} cardId={movie.imdbID} history={this.props.history} location={this.props.location} math={this.props.math} />
               </Col>
             ))
             .slice(0, 6)}
